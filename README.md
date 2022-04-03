@@ -3,27 +3,28 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
-An [Imhotep](https://github.com/justinabrahms/imhotep) plugin for [PMD](https://pmd.github.io/), the static analyzer.
+An [Imhotep][i] plugin for [PMD][p], the static analyzer.
 
-PMD talk to it via the Static Analysis Results Interchange Format (sarif), which is simply a JSON with a specific schema.
+[i]: https://github.com/justinabrahms/imhotep
+[p]: https://pmd.github.io/
+
+[PMD][p] talk to [Imhotep][i] via the [Static Analysis Results Interchange Format (sarif)][s], which is simply a JSON with a specific schema.
+
+[s]: https://docs.oasis-open.org/sarif/sarif/v2.0/sarif-v2.0.html
 
 ## Installation
 
-This package is available on [PyPI](https://pypi.org/project/imhotep-pmd/).
+1. Install [Imhotep][i] itself from [PyPI](https://pypi.org/project/imhotep/), since `imhotep_pmd` is merely a binding/plugin for [Imhotep][i]:
+   ```shell
+   pip install imhotep
+   ```
+2. Install `imhotep_pmd` from [PyPI](https://pypi.org/project/imhotep-pmd/):
+   ```shell
+   pip install imhotep_pmd
+   ```
+3. Install [PMD][p]. Please refer to their website for instructions.
 
-```shell
-pip install imhotep_pmd
-```
-
-You'll have to install Imhotep itself as well, as this package is simply a binding.
-
-```shell
-pip install imhotep
-```
-
-Again, since this package is merely a binding, you need to install PMD as well. Please refer to their website for how.
-
-An additional step is to provide a `imhotep_pmd.toml` at the root directory of the repo you want to run PMD against. It should contain this line that specifies the command used to invoke PMD:
+Unless you've unzipped the [PMD][p] archive file to `~/bin/pmd-bin-6.44.0/`, you'll have to tell `imhotep_pmd` where to find the executable. This can be achieved by providing a `imhotep_pmd.toml` at the root directory of the repo you want to run PMD against. The file should contain this line that specifies the command used to invoke [PMD][p]:
 
 ```toml
 pmd_command = "~/bin/pmd-bin-6.44.0/bin/run.sh pmd"
