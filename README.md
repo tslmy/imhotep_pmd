@@ -36,3 +36,21 @@ To use the plugin, you'll have to pass a path to the linter in question to the i
 ```shell
 imhotep --linter imhotep_pmd.plugin:PmdLinter
 ```
+
+## Demo
+Let's take #1 as an example.
+
+```shell
+$ imhotep \
+   --repo_name="tslmy/imhotep_pmd" \
+   --github-username="tslmy" \
+   --github-password="$GITHUB_PASSWORD" \
+   --pr-number=1 \
+   --linter imhotep_pmd.plugin:PmdLinter
+```
+
+Screenshots:
+
+| Before | After |
+| ------- | --- |
+| ![Screen Shot 2022-04-03 at 14 04 45](https://user-images.githubusercontent.com/594058/161449329-7c43d6d8-547e-43a6-ac21-57701cb3b8fd.png) | ![Screen Shot 2022-04-03 at 14 04 45](https://user-images.githubusercontent.com/594058/161449346-1c3507ab-fbdf-42cc-b64b-c18be52a385f.png) |
