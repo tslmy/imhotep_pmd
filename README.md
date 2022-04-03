@@ -54,4 +54,3 @@ Screenshots:
 | Before | After |
 | ------- | --- |
 | ![Screen Shot 2022-04-03 at 14 04 45](https://user-images.githubusercontent.com/594058/161449329-7c43d6d8-547e-43a6-ac21-57701cb3b8fd.png) | ![Screen Shot 2022-04-03 at 14 27 11](https://user-images.githubusercontent.com/594058/161449378-6c20f0df-9785-43a0-99da-67a07574bb8e.png) |
-
