@@ -64,7 +64,7 @@ class PmdLinter(Tool):
                         "executionSuccessful"
                     ], f"Invocation #{invocation_id} in Run #{run_id} failed."
                 for result in run["results"]:
-                    message = f"Rule #{result['ruleIndex']} - {result['ruleId']}: {result['message']['text']}"
+                    message = f"Rule No. {result['ruleIndex']} - {result['ruleId']}: {result['message']['text']}"
                     for location in result["locations"]:
                         filepath_absolute = location["physicalLocation"][
                             "artifactLocation"
@@ -78,7 +78,7 @@ class PmdLinter(Tool):
                         location_message = f'L{region["startLine"]}:{region["startColumn"]}-L{region["endLine"]}:{region["endColumn"]}'
                         this_message = f"{location_message}: {message}"
                         line_number = region["startLine"]
-                        retval[filepath_relative][line_number].append(this_message)
+                        retval[filepath_relative][str(line_number)].append(this_message)
         except KeyError as e:
             logger.error(f"Error happened: {e}. Validating JSON schema.")
             # TODO: As of 04/03/2022, the URL to the schema provided by PMD's results are giving a 404.
