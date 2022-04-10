@@ -9,7 +9,7 @@ setup(
     author="Mingyang Li",
     author_email="imhotep_pmd@myli.page",
     description="An Imhotep plugin for PMD, the static analyzer.",
-    install_requires=["jsonschema", "requests"],
+    install_requires=["jsonschema", "requests", "toml"],
     entry_points={
         "imhotep_linters": [".py = imhotep_pmd.plugin:PmdLinter"],
     },
