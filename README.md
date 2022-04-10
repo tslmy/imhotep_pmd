@@ -84,7 +84,7 @@ This section walks you through the process of setting up a Jenkins job that auto
    if [ ! -f "${FILE}" ] || [ ! -r "${FILE}" ] || [ ! -x "${FILE}" ]
    then
       echo "Environment does not exist."
-       if [ ! -d "mambaforge" ] 
+       if [ ! -d "mambaforge" ]
        then
            echo "mambaforge does not exist. Installing."
            curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
