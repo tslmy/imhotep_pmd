@@ -9,7 +9,7 @@ An [Imhotep][i] plugin for [PMD][p], the static analyzer.
 [i]: https://github.com/justinabrahms/imhotep
 [p]: https://pmd.github.io/
 
-[PMD][p] talk to [Imhotep][i] via the [Static Analysis Results Interchange Format (sarif)][s], which is simply a JSON with a specific schema.
+[PMD][p] talks to [Imhotep][i] via the [Static Analysis Results Interchange Format (sarif)][s], which is simply a JSON with a specific schema.
 
 [s]: https://docs.oasis-open.org/sarif/sarif/v2.0/sarif-v2.0.html
 
