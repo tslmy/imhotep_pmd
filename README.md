@@ -80,3 +80,12 @@ This section walks you through the process of setting up a Jenkins job that auto
 8. Under _Build_, add a step _Execute shell_. Populate it with the content of `jenkins.sh`.
 9. Your Jenkins jobs should now automatically run PMD and post review comments whenever a PR is opened.
    ![result](https://user-images.githubusercontent.com/594058/162634813-4d03453a-2193-4ac8-a7cd-e30891719b1c.png)
+
+## Development
+
+To upload a new version to PyPI:
+
+```shell
+python setup.py sdist bdist_wheel
+twine upload dist/*
+```
