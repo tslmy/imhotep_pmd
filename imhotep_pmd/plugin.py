@@ -1,8 +1,8 @@
 import json
 import logging
 import os
-import shutil
 from collections import defaultdict
+from tempfile import NamedTemporaryFile
 
 import jsonschema
 import requests
@@ -49,11 +49,14 @@ class PmdLinter(Tool):
             pmd_command = self.default_pmd_command
             self.logger.info(f"Using default value for `pmd_command`: `{pmd_command}`.")
 
-        # Invoke `pmd`.
-        cmd = f'{pmd_command} --rulesets rulesets/java/quickstart.xml --format sarif --dir "{dirname}"'
-        output = self.executor(cmd)
-
         filepaths_absolute = {os.path.join(dirname, filename) for filename in filenames}
+        with NamedTemporaryFile(mode="w+") as f:
+            # See `--file-list` in https://pmd.github.io/latest/pmd_userdocs_cli_reference.html.
+            f.write(",".join(filepaths_absolute))
+            # Invoke `pmd`.
+            cmd = f'{pmd_command} --rulesets rulesets/java/quickstart.xml --format sarif --file-list "{f.name}"'
+            output = self.executor(cmd)
+
         # Parse the Static Analysis Results Interchange Format (sarif) results.
         results = json.loads(output)
         retval = defaultdict(lambda: defaultdict(list))
