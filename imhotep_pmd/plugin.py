@@ -34,7 +34,10 @@ class PmdLinter(Tool):
         - `list_file` is a list of relative paths.
         - `dirname` is the directory path to the **temporary** repo.
         """
-
+        if not filenames:
+            self.logger.warning("No file to check.")
+            return dict()
+        self.logger.info(f"PMD will check {len(filenames)} file(s).")
         # determine the command to run.
         configurations = dict()
         if "linter_configs" in kwargs:
@@ -53,6 +56,7 @@ class PmdLinter(Tool):
         with NamedTemporaryFile(mode="w+") as f:
             # See `--file-list` in https://pmd.github.io/latest/pmd_userdocs_cli_reference.html.
             f.write(",".join(filepaths_absolute))
+            f.flush()
             # Invoke `pmd`.
             cmd = f'{pmd_command} --rulesets rulesets/java/quickstart.xml --format sarif --file-list "{f.name}"'
             output = self.executor(cmd)
