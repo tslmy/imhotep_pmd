@@ -83,9 +83,13 @@ This section walks you through the process of setting up a Jenkins job that auto
 
 ## Development
 
+This project uses [Poetry](https://python-poetry.org/) to manage dependencies and to package itself.
+
 To upload a new version to PyPI:
 
 ```shell
-python setup.py sdist bdist_wheel
-twine upload dist/*
+poetry build
+poetry publish
 ```
+
+When prompted, enter your PyPI credentials.
