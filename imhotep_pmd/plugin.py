@@ -17,7 +17,7 @@ class PmdLinter(Tool):
 
     logger = logging.getLogger(__name__)
 
-    default_pmd_command = "~/bin/pmd-bin-6.44.0/bin/run.sh pmd"
+    default_pmd_command = os.getenv("PMD_COMMAND", default="~/bin/pmd-bin-6.44.0/bin/run.sh pmd")
 
     def get_configs(self):
         """
