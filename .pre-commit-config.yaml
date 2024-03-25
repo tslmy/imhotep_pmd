@@ -19,13 +19,13 @@ repos:
     -   id: trailing-whitespace
     -   id: mixed-line-ending
 -   repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.8.0
+    rev: v1.9.0
     hooks:
     -   id: mypy
         args: [--ignore-missing-imports]
         additional_dependencies: [types-requests==2.27.12, types-toml, types-setuptools==57.4.10]
 -   repo: https://github.com/psf/black
-    rev: 23.12.1
+    rev: 24.3.0
     hooks:
     -   id: black
 -   repo: https://github.com/PyCQA/isort
@@ -33,7 +33,7 @@ repos:
     hooks:
     -   id: isort
 -   repo: https://github.com/asottile/pyupgrade
-    rev: v3.15.0
+    rev: v3.15.2
     hooks:
     -   id: pyupgrade
         args: [--py36-plus]
